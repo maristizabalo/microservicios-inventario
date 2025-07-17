@@ -32,7 +32,7 @@ class ProxyView(APIView):
         services_map = {
             'auth': 'http://localhost:8001/api/',
             'inventory': 'http://localhost:8002/api/',
-            'movements': 'http://localhost:8003/api/',
+            'stock': 'http://localhost:8003/api/',
         }
 
         base_url = services_map.get(service)

@@ -1,7 +1,7 @@
 {
     "info": {
-        "_postman_id": "be453680-5882-4d80-9e18-0e48a68dbca8",
-        "name": "API Gateway - Inventario Microservicios (Completo - 8004)",
+        "_postman_id": "7d9e6211-baf0-4225-80eb-403bc861df9f",
+        "name": "API Gateway - Microservicios Inventario (8004) - Modificado Stock",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
     "item": [
@@ -14,13 +14,7 @@
                     "mode": "raw",
                     "raw": "{\n    \"username\": \"nuevo_usuario\",\n    \"password\": \"1234\"\n}"
                 },
-                "url": {
-                    "raw": "http://localhost:8004/api/auth/users/register/",
-                    "protocol": "http",
-                    "host": ["localhost"],
-                    "port": "8004",
-                    "path": ["api", "auth", "users", "register", ""]
-                }
+                "url": { "raw": "http://localhost:8004/api/auth/users/register/" }
             }
         },
         {
@@ -32,13 +26,7 @@
                     "mode": "raw",
                     "raw": "{\n    \"username\": \"usuario\",\n    \"password\": \"clave\"\n}"
                 },
-                "url": {
-                    "raw": "http://localhost:8004/api/auth/token/",
-                    "protocol": "http",
-                    "host": ["localhost"],
-                    "port": "8004",
-                    "path": ["api", "auth", "token", ""]
-                }
+                "url": { "raw": "http://localhost:8004/api/auth/token/" }
             }
         },
         {
@@ -50,13 +38,7 @@
                     "mode": "raw",
                     "raw": "{\n    \"refresh\": \"AQUI_TU_REFRESH_TOKEN\"\n}"
                 },
-                "url": {
-                    "raw": "http://localhost:8004/api/auth/token/refresh/",
-                    "protocol": "http",
-                    "host": ["localhost"],
-                    "port": "8004",
-                    "path": ["api", "auth", "token", "refresh", ""]
-                }
+                "url": { "raw": "http://localhost:8004/api/auth/token/refresh/" }
             }
         },
         {
@@ -64,13 +46,7 @@
             "request": {
                 "method": "GET",
                 "header": [{ "key": "Authorization", "value": "Bearer AQUI_TU_ACCESS_TOKEN" }],
-                "url": {
-                    "raw": "http://localhost:8004/api/auth/users/",
-                    "protocol": "http",
-                    "host": ["localhost"],
-                    "port": "8004",
-                    "path": ["api", "auth", "users", ""]
-                }
+                "url": { "raw": "http://localhost:8004/api/auth/users/" }
             }
         },
         {
@@ -78,13 +54,7 @@
             "request": {
                 "method": "GET",
                 "header": [{ "key": "Authorization", "value": "Bearer AQUI_TU_ACCESS_TOKEN" }],
-                "url": {
-                    "raw": "http://localhost:8004/api/inventory/products/",
-                    "protocol": "http",
-                    "host": ["localhost"],
-                    "port": "8004",
-                    "path": ["api", "inventory", "products", ""]
-                }
+                "url": { "raw": "http://localhost:8004/api/inventory/products/" }
             }
         },
         {
@@ -99,13 +69,7 @@
                     "mode": "raw",
                     "raw": "{\n    \"nombre\": \"Producto X\",\n    \"descripcion\": \"Descripción X\",\n    \"stock\": 10\n}"
                 },
-                "url": {
-                    "raw": "http://localhost:8004/api/inventory/products/",
-                    "protocol": "http",
-                    "host": ["localhost"],
-                    "port": "8004",
-                    "path": ["api", "inventory", "products", ""]
-                }
+                "url": { "raw": "http://localhost:8004/api/inventory/products/" }
             }
         },
         {
@@ -120,13 +84,7 @@
                     "mode": "raw",
                     "raw": "{\n    \"nombre\": \"Producto Modificado\",\n    \"descripcion\": \"Actualizado\",\n    \"stock\": 99\n}"
                 },
-                "url": {
-                    "raw": "http://localhost:8004/api/inventory/products/1/",
-                    "protocol": "http",
-                    "host": ["localhost"],
-                    "port": "8004",
-                    "path": ["api", "inventory", "products", "1", ""]
-                }
+                "url": { "raw": "http://localhost:8004/api/inventory/products/1/" }
             }
         },
         {
@@ -134,31 +92,19 @@
             "request": {
                 "method": "DELETE",
                 "header": [{ "key": "Authorization", "value": "Bearer AQUI_TU_ACCESS_TOKEN" }],
-                "url": {
-                    "raw": "http://localhost:8004/api/inventory/products/1/",
-                    "protocol": "http",
-                    "host": ["localhost"],
-                    "port": "8004",
-                    "path": ["api", "inventory", "products", "1", ""]
-                }
+                "url": { "raw": "http://localhost:8004/api/inventory/products/1/" }
             }
         },
         {
-            "name": "Movement - Listar Movimientos",
+            "name": "Stock - Listar Movimientos",
             "request": {
                 "method": "GET",
                 "header": [{ "key": "Authorization", "value": "Bearer AQUI_TU_ACCESS_TOKEN" }],
-                "url": {
-                    "raw": "http://localhost:8004/api/movements/",
-                    "protocol": "http",
-                    "host": ["localhost"],
-                    "port": "8004",
-                    "path": ["api", "movements", ""]
-                }
+                "url": { "raw": "http://localhost:8004/api/stock/movements/" }
             }
         },
         {
-            "name": "Movement - Registrar Entrada",
+            "name": "Stock - Registrar Entrada",
             "request": {
                 "method": "POST",
                 "header": [
@@ -169,17 +115,11 @@
                     "mode": "raw",
                     "raw": "{\n    \"producto_id\": 1,\n    \"tipo\": \"entrada\",\n    \"cantidad\": 10\n}"
                 },
-                "url": {
-                    "raw": "http://localhost:8004/api/movements/entrada/",
-                    "protocol": "http",
-                    "host": ["localhost"],
-                    "port": "8004",
-                    "path": ["api", "movements", "entrada", ""]
-                }
+                "url": { "raw": "http://localhost:8004/api/stock/movements/" }
             }
         },
         {
-            "name": "Movement - Registrar Salida",
+            "name": "Stock - Registrar Salida",
             "request": {
                 "method": "POST",
                 "header": [
@@ -190,13 +130,7 @@
                     "mode": "raw",
                     "raw": "{\n    \"producto_id\": 1,\n    \"tipo\": \"salida\",\n    \"cantidad\": 5\n}"
                 },
-                "url": {
-                    "raw": "http://localhost:8004/api/movements/salida/",
-                    "protocol": "http",
-                    "host": ["localhost"],
-                    "port": "8004",
-                    "path": ["api", "movements", "salida", ""]
-                }
+                "url": { "raw": "http://localhost:8004/api/stock/movements/" }
             }
         }
     ]
