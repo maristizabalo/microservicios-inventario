@@ -1,0 +1,203 @@
+{
+    "info": {
+        "_postman_id": "be453680-5882-4d80-9e18-0e48a68dbca8",
+        "name": "API Gateway - Inventario Microservicios (Completo - 8004)",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Auth - Registrar Usuario",
+            "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"username\": \"nuevo_usuario\",\n    \"password\": \"1234\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8004/api/auth/users/register/",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8004",
+                    "path": ["api", "auth", "users", "register", ""]
+                }
+            }
+        },
+        {
+            "name": "Auth - Obtener Token",
+            "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"username\": \"usuario\",\n    \"password\": \"clave\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8004/api/auth/token/",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8004",
+                    "path": ["api", "auth", "token", ""]
+                }
+            }
+        },
+        {
+            "name": "Auth - Refrescar Token",
+            "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"refresh\": \"AQUI_TU_REFRESH_TOKEN\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8004/api/auth/token/refresh/",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8004",
+                    "path": ["api", "auth", "token", "refresh", ""]
+                }
+            }
+        },
+        {
+            "name": "Auth - Listar Usuarios",
+            "request": {
+                "method": "GET",
+                "header": [{ "key": "Authorization", "value": "Bearer AQUI_TU_ACCESS_TOKEN" }],
+                "url": {
+                    "raw": "http://localhost:8004/api/auth/users/",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8004",
+                    "path": ["api", "auth", "users", ""]
+                }
+            }
+        },
+        {
+            "name": "Inventory - Listar Productos",
+            "request": {
+                "method": "GET",
+                "header": [{ "key": "Authorization", "value": "Bearer AQUI_TU_ACCESS_TOKEN" }],
+                "url": {
+                    "raw": "http://localhost:8004/api/inventory/products/",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8004",
+                    "path": ["api", "inventory", "products", ""]
+                }
+            }
+        },
+        {
+            "name": "Inventory - Crear Producto",
+            "request": {
+                "method": "POST",
+                "header": [
+                    { "key": "Authorization", "value": "Bearer AQUI_TU_ACCESS_TOKEN" },
+                    { "key": "Content-Type", "value": "application/json" }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"nombre\": \"Producto X\",\n    \"descripcion\": \"Descripción X\",\n    \"stock\": 10\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8004/api/inventory/products/",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8004",
+                    "path": ["api", "inventory", "products", ""]
+                }
+            }
+        },
+        {
+            "name": "Inventory - Actualizar Producto",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    { "key": "Authorization", "value": "Bearer AQUI_TU_ACCESS_TOKEN" },
+                    { "key": "Content-Type", "value": "application/json" }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"nombre\": \"Producto Modificado\",\n    \"descripcion\": \"Actualizado\",\n    \"stock\": 99\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8004/api/inventory/products/1/",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8004",
+                    "path": ["api", "inventory", "products", "1", ""]
+                }
+            }
+        },
+        {
+            "name": "Inventory - Eliminar Producto",
+            "request": {
+                "method": "DELETE",
+                "header": [{ "key": "Authorization", "value": "Bearer AQUI_TU_ACCESS_TOKEN" }],
+                "url": {
+                    "raw": "http://localhost:8004/api/inventory/products/1/",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8004",
+                    "path": ["api", "inventory", "products", "1", ""]
+                }
+            }
+        },
+        {
+            "name": "Movement - Listar Movimientos",
+            "request": {
+                "method": "GET",
+                "header": [{ "key": "Authorization", "value": "Bearer AQUI_TU_ACCESS_TOKEN" }],
+                "url": {
+                    "raw": "http://localhost:8004/api/movements/",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8004",
+                    "path": ["api", "movements", ""]
+                }
+            }
+        },
+        {
+            "name": "Movement - Registrar Entrada",
+            "request": {
+                "method": "POST",
+                "header": [
+                    { "key": "Authorization", "value": "Bearer AQUI_TU_ACCESS_TOKEN" },
+                    { "key": "Content-Type", "value": "application/json" }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"producto_id\": 1,\n    \"tipo\": \"entrada\",\n    \"cantidad\": 10\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8004/api/movements/entrada/",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8004",
+                    "path": ["api", "movements", "entrada", ""]
+                }
+            }
+        },
+        {
+            "name": "Movement - Registrar Salida",
+            "request": {
+                "method": "POST",
+                "header": [
+                    { "key": "Authorization", "value": "Bearer AQUI_TU_ACCESS_TOKEN" },
+                    { "key": "Content-Type", "value": "application/json" }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"producto_id\": 1,\n    \"tipo\": \"salida\",\n    \"cantidad\": 5\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8004/api/movements/salida/",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8004",
+                    "path": ["api", "movements", "salida", ""]
+                }
+            }
+        }
+    ]
+}

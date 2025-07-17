@@ -1,0 +1,105 @@
+{
+    "info": {
+        "_postman_id": "b72b459b-52cf-4c01-9915-53c4eaf7d141",
+        "name": "Auth Service - Prueba Técnica",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Registro Usuario",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"username\": \"nuevo_usuario\",\n    \"password\": \"1234\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8001/api/users/register/",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8001",
+                    "path": ["api", "users", "register", ""]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Obtener Token",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"username\": \"nuevo_usuario\",\n    \"password\": \"1234\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8001/api/token/",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8001",
+                    "path": ["api", "token", ""]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Refrescar Token",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"refresh\": \"PON_AQUI_EL_REFRESH_TOKEN\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8001/api/token/refresh/",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8001",
+                    "path": ["api", "token", "refresh", ""]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Listar Usuarios (con Token)",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer PON_AQUI_EL_ACCESS_TOKEN",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8001/api/users/",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8001",
+                    "path": ["api", "users", ""]
+                }
+            },
+            "response": []
+        }
+    ]
+}
