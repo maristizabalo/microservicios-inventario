@@ -1,5 +1,6 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
+from rest_framework.decorators import action
 from .models import Movement
 from .serializers import MovementSerializer
 import requests
@@ -35,3 +36,9 @@ class MovementViewSet(viewsets.ModelViewSet):
                 'stock': nuevo_stock
             }
         )
+
+    @action(detail=False, methods=['get'], url_path='list')
+    def listar_movimientos(self, request):
+        queryset = self.get_queryset()
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
