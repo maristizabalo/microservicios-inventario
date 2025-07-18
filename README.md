@@ -24,7 +24,7 @@
 ├── api_gateway/
 ├── run_services.py
 /postman/
-├── api_gateway_collection.json
+├── collection_api_gateway.json
 ```
 
 ---
